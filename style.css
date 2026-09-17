@@ -34,6 +34,63 @@ img {
 }
 
 /* =========================
+   CURSOR GLOW EFFECT (SUBTLE & LIGHT)
+========================= */
+
+.cursor-glow {
+    position: fixed;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.04) 0%, rgba(0, 0, 0, 0) 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+/* =========================
+   SCROLL REVEAL ANIMATIONS
+========================= */
+
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal-on-scroll.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   TYPING EFFECT
+========================= */
+
+.typing-container {
+    margin-top: 15px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #a78bfa;
+    min-height: 30px;
+}
+
+.typing-cursor {
+    display: inline-block;
+    color: #3b82f6;
+    font-weight: 400;
+    animation: blink 0.7s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* =========================
    BACKGROUND
 ========================= */
 
@@ -258,7 +315,7 @@ main {
 .hero-line {
     width: 75px;
     height: 3px;
-    margin: 30px 0;
+    margin: 25px 0;
     border-radius: 20px;
     background: linear-gradient(
         90deg,
@@ -1108,7 +1165,7 @@ main {
     display: flex;
     align-items: center;
     gap: 7px;
-    margin-top: 9px;
+    margin-top: 99px;
 }
 
 .guide-arrow span {
@@ -1316,6 +1373,10 @@ footer {
 }
 
 @media (max-width: 950px) {
+    .cursor-glow {
+        display: none;
+    }
+
     .nav-links {
         display: none;
     }

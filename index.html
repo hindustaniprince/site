@@ -46,6 +46,9 @@
 
 <body>
 
+    <!-- MOUSE GLOW -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
     <!-- BACKGROUND -->
     <div class="background">
         <div class="orb orb-one"></div>
@@ -81,7 +84,7 @@
     <!-- HERO -->
     <main id="home">
         <section class="hero">
-            <div class="hero-left">
+            <div class="hero-left reveal-on-scroll">
                 <div class="availability">
                     <span class="live-dot"></span>
                     <span>WELCOME TO MY WORLD</span>
@@ -93,6 +96,11 @@
                     Hindustani
                     <span>prince.</span>
                 </h1>
+
+                <!-- DYNAMIC TYPING EFFECT -->
+                <div class="typing-container">
+                    <span class="typing-text" id="typingText"></span><span class="typing-cursor">|</span>
+                </div>
 
                 <div class="hero-line"></div>
 
@@ -132,7 +140,7 @@
             </div>
 
             <!-- PROFILE -->
-            <div class="hero-right">
+            <div class="hero-right reveal-on-scroll">
                 <div class="profile-orbit orbit-one"></div>
                 <div class="profile-orbit orbit-two"></div>
 
@@ -173,7 +181,7 @@
 
         <!-- ABOUT -->
         <section class="section" id="about">
-            <div class="section-heading">
+            <div class="section-heading reveal-on-scroll">
                 <div>
                     <span class="section-number">01</span>
                     <span class="section-label">ABOUT ME</span>
@@ -190,7 +198,7 @@
             </div>
 
             <div class="about-grid">
-                <div class="about-main">
+                <div class="about-main reveal-on-scroll">
                     <span class="quote-mark">“</span>
                     <p>
                         Hello! I am
@@ -208,7 +216,7 @@
                 </div>
 
                 <div class="info-grid">
-                    <div class="info-card">
+                    <div class="info-card reveal-on-scroll">
                         <div class="info-icon purple">
                             <i class="fa-solid fa-user"></i>
                         </div>
@@ -216,7 +224,7 @@
                         <strong>Hindustaniprince</strong>
                     </div>
 
-                    <div class="info-card">
+                    <div class="info-card reveal-on-scroll">
                         <div class="info-icon blue">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </div>
@@ -224,7 +232,7 @@
                         <strong>Bachelor's Degree with Honours with Research</strong>
                     </div>
 
-                    <div class="info-card">
+                    <div class="info-card reveal-on-scroll">
                         <div class="info-icon cyan">
                             <i class="fa-solid fa-earth-asia"></i>
                         </div>
@@ -232,7 +240,7 @@
                         <strong>Geography</strong>
                     </div>
 
-                    <div class="info-card">
+                    <div class="info-card reveal-on-scroll">
                         <div class="info-icon pink">
                             <i class="fa-solid fa-trophy"></i>
                         </div>
@@ -245,7 +253,7 @@
 
         <!-- EDUCATION -->
         <section class="section" id="education">
-            <div class="section-heading">
+            <div class="section-heading reveal-on-scroll">
                 <div>
                     <span class="section-number">02</span>
                     <span class="section-label">MY JOURNEY</span>
@@ -257,7 +265,7 @@
                 <p>My academic journey and area of study.</p>
             </div>
 
-            <div class="education-card">
+            <div class="education-card reveal-on-scroll">
                 <div class="education-logo">
                     <i class="fa-solid fa-graduation-cap"></i>
                 </div>
@@ -299,7 +307,7 @@
 
         <!-- SKILLS / INTERESTS -->
         <section class="section" id="skills">
-            <div class="section-heading">
+            <div class="section-heading reveal-on-scroll">
                 <div>
                     <span class="section-number">03</span>
                     <span class="section-label">INTERESTS</span>
@@ -316,7 +324,7 @@
 
             <div class="skills-grid">
                 <!-- EDUCATION & LEARNING -->
-                <div class="skill-card">
+                <div class="skill-card reveal-on-scroll">
                     <div class="skill-top">
                         <span class="skill-number">01</span>
                         <i class="fa-solid fa-graduation-cap"></i>
@@ -329,7 +337,7 @@
                 </div>
 
                 <!-- SPORTS & FITNESS -->
-                <div class="skill-card">
+                <div class="skill-card reveal-on-scroll">
                     <div class="skill-top">
                         <span class="skill-number">02</span>
                         <i class="fa-solid fa-futbol"></i>
@@ -342,7 +350,7 @@
                 </div>
 
                 <!-- GEOGRAPHY -->
-                <div class="skill-card">
+                <div class="skill-card reveal-on-scroll">
                     <div class="skill-top">
                         <span class="skill-number">03</span>
                         <i class="fa-solid fa-earth-asia"></i>
@@ -355,7 +363,7 @@
                 </div>
 
                 <!-- TECHNOLOGY -->
-                <div class="skill-card">
+                <div class="skill-card reveal-on-scroll">
                     <div class="skill-top">
                         <span class="skill-number">04</span>
                         <i class="fa-solid fa-laptop-code"></i>
@@ -368,7 +376,7 @@
                 </div>
 
                 <!-- CONTENT CREATION -->
-                <div class="skill-card">
+                <div class="skill-card reveal-on-scroll">
                     <div class="skill-top">
                         <span class="skill-number">05</span>
                         <i class="fa-solid fa-video"></i>
@@ -385,7 +393,7 @@
         <!-- SOCIAL -->
         <section class="section social-section" id="social">
             <div class="social-content">
-                <div class="section-heading">
+                <div class="section-heading reveal-on-scroll">
                     <div>
                         <span class="section-number">04</span>
                         <span class="section-label">SOCIAL PRESENCE</span>
@@ -405,7 +413,7 @@
                     <!-- SOCIAL LINKS -->
                     <div class="social-grid">
                         <!-- TELEGRAM -->
-                        <a href="https://t.me/its_hindustaniprince" target="_blank" rel="noopener noreferrer" class="social-card telegram">
+                        <a href="https://t.me/its_hindustaniprince" target="_blank" rel="noopener noreferrer" class="social-card telegram reveal-on-scroll">
                             <i class="fa-brands fa-telegram"></i>
                             <div>
                                 <small>TELEGRAM</small>
@@ -415,7 +423,7 @@
                         </a>
 
                         <!-- INSTAGRAM -->
-                        <a href="https://www.instagram.com/Its_hindustaniprince/" target="_blank" rel="noopener noreferrer" class="social-card instagram">
+                        <a href="https://www.instagram.com/Its_hindustaniprince/" target="_blank" rel="noopener noreferrer" class="social-card instagram reveal-on-scroll">
                             <i class="fa-brands fa-instagram"></i>
                             <div>
                                 <small>INSTAGRAM</small>
@@ -425,7 +433,7 @@
                         </a>
 
                         <!-- FACEBOOK -->
-                        <a href="https://www.facebook.com/itshindustaniprince" target="_blank" rel="noopener noreferrer" class="social-card facebook">
+                        <a href="https://www.facebook.com/itshindustaniprince" target="_blank" rel="noopener noreferrer" class="social-card facebook reveal-on-scroll">
                             <i class="fa-brands fa-facebook"></i>
                             <div>
                                 <small>FACEBOOK</small>
@@ -435,7 +443,7 @@
                         </a>
 
                         <!-- YOUTUBE -->
-                        <a href="https://www.youtube.com/channel/UCKNiyUUIqYJOZeQwUQG23dA" target="_blank" rel="noopener noreferrer" class="social-card youtube">
+                        <a href="https://www.youtube.com/channel/UCKNiyUUIqYJOZeQwUQG23dA" target="_blank" rel="noopener noreferrer" class="social-card youtube reveal-on-scroll">
                             <i class="fa-brands fa-youtube"></i>
                             <div>
                                 <small>YOUTUBE</small>
@@ -446,7 +454,7 @@
                     </div>
 
                     <!-- FOLLOW GUIDE -->
-                    <div class="follow-guide">
+                    <div class="follow-guide reveal-on-scroll">
                         <div class="guide-status">
                             <span></span>
                             YOU'RE HERE
@@ -500,11 +508,80 @@
         <div class="footer-line"></div>
 
         <div class="footer-bottom">
-            <span>© 2026 Hindustaniprince</span>
+            <span>© <span id="currentYear"></span> Hindustaniprince</span>
             <span>Personal Website</span>
         </div>
     </footer>
 
+    <!-- JAVASCRIPT FOR ANIMATIONS & TYPING EFFECT -->
+    <script>
+        // 1. DYNAMIC TYPING EFFECT
+        const typingTextElement = document.getElementById('typingText');
+        const phrases = [
+            "Geography Scholar",
+            "Sports Enthusiast",
+            "Digital Creator",
+            "Continuous Learner"
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                typingTextElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingTextElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 40 : 80;
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                typeSpeed = 2000; // Pause at end of word
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(typeEffect, typeSpeed);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            typeEffect();
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        });
+
+        // 2. SCROLL REVEAL ANIMATION
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // 3. MOUSE CURSOR GLOW EFFECT
+        const cursorGlow = document.getElementById('cursorGlow');
+        window.addEventListener('mousemove', (e) => {
+            cursorGlow.style.left = e.clientX + 'px';
+            cursorGlow.style.top = e.clientY + 'px';
+        });
+    </script>
 </body>
 
 </html>
