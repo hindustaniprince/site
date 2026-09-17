@@ -1,6 +1,6 @@
-/* =========================================================
+/* =========================
    HINDUSTANIPRINCE PREMIUM PERSONAL WEBSITE
-========================================================= */
+========================= */
 
 /* =========================
    RESET
@@ -34,7 +34,7 @@ img {
 }
 
 /* =========================
-   CURSOR GLOW EFFECT (SUBTLE & LIGHT)
+   CURSOR GLOW EFFECT
 ========================= */
 
 .cursor-glow {
@@ -965,7 +965,7 @@ main {
 
 .social-area {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 330px;
+    grid-template-columns: minmax(0, 1fr) 340px;
     gap: 25px;
     align-items: stretch;
 }
@@ -1051,14 +1051,14 @@ main {
 }
 
 /* =========================
-   FOLLOW GUIDE CARD
+   FOLLOW GUIDE CARD (FIXED)
 ========================= */
 
 .follow-guide {
-    min-height: 186px;
+    min-height: 100%;
     position: relative;
     overflow: hidden;
-    padding: 17px 18px;
+    padding: 22px 24px;
     border: 1px solid rgba(139,92,246,0.25);
     border-radius: 22px;
     background: linear-gradient(
@@ -1067,6 +1067,9 @@ main {
         rgba(37,99,235,0.10)
     );
     box-shadow: 0 20px 50px rgba(0,0,0,0.16);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     transition: transform 0.35s ease, border-color 0.35s ease;
 }
 
@@ -1103,19 +1106,20 @@ main {
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    padding: 6px 10px;
-    border: 1px solid rgba(255,255,255,0.08);
+    padding: 6px 12px;
+    border: 1px solid rgba(255,255,255,0.1);
     border-radius: 50px;
-    background: rgba(4,8,22,0.35);
-    color: #858da5;
-    font-size: 7px;
+    background: rgba(4,8,22,0.6);
+    color: #a5adc4;
+    font-size: 8px;
     letter-spacing: 1.3px;
     font-weight: 800;
+    align-self: flex-start;
 }
 
 .guide-status span {
-    width: 5px;
-    height: 5px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: #22c55e;
     box-shadow: 0 0 8px #22c55e;
@@ -1124,29 +1128,30 @@ main {
 .guide-content {
     position: relative;
     z-index: 4;
-    height: 135px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    gap: 10px;
+    margin-top: 15px;
 }
 
 .guide-text {
-    align-self: center;
-    max-width: 175px;
+    max-width: 160px;
 }
 
 .guide-text > small {
+    display: block;
     color: #9b72ff;
-    font-size: 7px;
+    font-size: 8px;
     letter-spacing: 1.5px;
     font-weight: 800;
+    margin-bottom: 4px;
 }
 
 .guide-text h3 {
-    margin-top: 7px;
     font-family: "Space Grotesk", sans-serif;
-    font-size: 20px;
-    line-height: 1.05;
+    font-size: 22px;
+    line-height: 1.1;
     letter-spacing: -0.5px;
 }
 
@@ -1157,39 +1162,40 @@ main {
 .guide-text p {
     margin-top: 8px;
     color: #8088a0;
-    font-size: 8px;
-    line-height: 1.55;
+    font-size: 10px;
+    line-height: 1.5;
 }
 
 .guide-arrow {
     display: flex;
     align-items: center;
     gap: 7px;
-    margin-top: 99px;
+    margin-top: 12px;
 }
 
 .guide-arrow span {
     color: #9b72ff;
-    font-size: 22px;
+    font-size: 18px;
     line-height: 1;
 }
 
 .guide-arrow small {
     color: #69718c;
-    font-size: 6px;
+    font-size: 7px;
     letter-spacing: 1.2px;
     font-weight: 800;
 }
 
 /* =========================
-   CHARACTER
+   CHARACTER (POINTING LEFT TO CARDS)
 ========================= */
 
 .guide-character {
-    width: 105px;
-    height: 135px;
+    width: 100px;
+    height: 130px;
     position: relative;
     flex-shrink: 0;
+    transform: none;
 }
 
 .character-hair {
@@ -1197,10 +1203,10 @@ main {
     width: 55px;
     height: 54px;
     top: 8px;
-    right: 12px;
+    left: 12px;
     border-radius: 48% 48% 40% 40%;
     background: #171525;
-    transform: rotate(4deg);
+    transform: rotate(-4deg);
 }
 
 .character-face {
@@ -1208,7 +1214,7 @@ main {
     width: 47px;
     height: 48px;
     top: 18px;
-    right: 16px;
+    left: 16px;
     border-radius: 45% 45% 48% 48%;
     background: #ffd4b8;
     z-index: 2;
@@ -1245,7 +1251,7 @@ main {
     position: absolute;
     width: 65px;
     height: 65px;
-    right: 7px;
+    left: 7px;
     bottom: 0;
     border-radius: 28px 28px 8px 8px;
     background: linear-gradient(
@@ -1260,12 +1266,12 @@ main {
     position: absolute;
     width: 53px;
     height: 12px;
-    right: 47px;
+    left: -20px;
     top: 76px;
     border-radius: 20px;
     background: #ffd4b8;
-    transform: rotate(-18deg);
-    transform-origin: right center;
+    transform: rotate(18deg);
+    transform-origin: left center;
     z-index: 3;
 }
 
@@ -1273,10 +1279,10 @@ main {
     position: absolute;
     width: 25px;
     height: 17px;
-    left: 0;
+    left: -35px;
     top: 60px;
     z-index: 4;
-    transform: rotate(-8deg);
+    transform: rotate(8deg);
 }
 
 .character-hand::before {
@@ -1294,11 +1300,11 @@ main {
     position: absolute;
     width: 27px;
     height: 5px;
-    left: -15px;
+    left: -12px;
     top: 3px;
     border-radius: 10px;
     background: #ffd4b8;
-    transform: rotate(-8deg);
+    transform: rotate(8deg);
 }
 
 /* =========================
