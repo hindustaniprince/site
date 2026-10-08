@@ -75,7 +75,7 @@
                 <span class="brand-name">Hindustaniprince</span>
             </a>
 
-            <div class="nav-links">
+            <div class="nav-links" id="navLinks">
 
                 <a href="#home">Home</a>
 
@@ -97,6 +97,13 @@
                 Connect
                 <i class="fa-solid fa-arrow-right"></i>
             </a>
+
+            <button class="menu-toggle" id="menuToggle" type="button"
+                aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
         </nav>
     </header>
@@ -1380,7 +1387,9 @@
 
                     <form
                         class="contact-form"
-                        id="contactForm">
+                        id="contactForm"
+                        action="https://formspree.io/f/xjykkake"
+                        method="POST">
 
 
                         <div class="form-row">
@@ -1766,6 +1775,43 @@
 
 
         /* =========================
+           MOBILE NAVIGATION
+        ========================= */
+
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        if (menuToggle && navLinks) {
+
+            menuToggle.addEventListener("click", function () {
+                const isOpen = document.body.classList.toggle("menu-open");
+
+                menuToggle.setAttribute("aria-expanded", String(isOpen));
+                menuToggle.setAttribute(
+                    "aria-label",
+                    isOpen ? "Close navigation menu" : "Open navigation menu"
+                );
+            });
+
+            navLinks.querySelectorAll("a").forEach(function (link) {
+                link.addEventListener("click", function () {
+                    document.body.classList.remove("menu-open");
+                    menuToggle.setAttribute("aria-expanded", "false");
+                    menuToggle.setAttribute("aria-label", "Open navigation menu");
+                });
+            });
+
+            window.addEventListener("resize", function () {
+                if (window.innerWidth > 950) {
+                    document.body.classList.remove("menu-open");
+                    menuToggle.setAttribute("aria-expanded", "false");
+                    menuToggle.setAttribute("aria-label", "Open navigation menu");
+                }
+            });
+        }
+
+
+        /* =========================
            CONTACT FORM
         ========================= */
 
@@ -1798,6 +1844,23 @@
 
                 const formData =
                     new FormData(contactForm);
+
+                /*
+                   Formspree uses the special "_subject"
+                   field for the subject line of the email.
+                   The visitor's Subject input is copied here
+                   before the form is submitted.
+                */
+                const visitorSubject =
+                    document.getElementById(
+                        "contactSubject"
+                    ).value.trim();
+
+                formData.set(
+                    "_subject",
+                    visitorSubject ||
+                    "New message from Hindustaniprince website"
+                );
 
                 try {
 
