@@ -50,9 +50,6 @@
 
 <body>
 
-    <!-- READING PROGRESS -->
-    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-
     <!-- MOUSE GLOW -->
     <div class="cursor-glow" id="cursorGlow"></div>
 
@@ -156,12 +153,6 @@
                     <strong>Sports</strong>
                     and digital content creation.
                 </p>
-
-                <div class="hero-focus-tags" aria-label="Areas of interest">
-                    <span><i class="fa-solid fa-brain"></i> AI Tools</span>
-                    <span><i class="fa-solid fa-laptop"></i> PC Editing</span>
-                    <span><i class="fa-solid fa-mobile-screen-button"></i> Mobile Editing</span>
-                </div>
 
                 <div class="hero-buttons">
 
@@ -1545,11 +1536,6 @@
 
 
 
-    <!-- BACK TO TOP -->
-    <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top" title="Back to top">
-        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-    </button>
-
     <!-- =========================
          FOOTER
     ========================= -->
@@ -1834,46 +1820,6 @@
                     menuToggle.setAttribute("aria-expanded", "false");
                     menuToggle.setAttribute("aria-label", "Open navigation menu");
                 }
-            });
-        }
-
-
-        /* =========================
-           PROFESSIONAL V2: SCROLL UI
-        ========================= */
-        const scrollProgress = document.getElementById("scrollProgress");
-        const backToTop = document.getElementById("backToTop");
-        const sectionLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
-        const pageSections = sectionLinks
-            .map((link) => document.querySelector(link.getAttribute("href")))
-            .filter(Boolean);
-
-        function updateScrollUI() {
-            const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = scrollableHeight > 0 ? (window.scrollY / scrollableHeight) * 100 : 0;
-
-            if (scrollProgress) scrollProgress.style.width = progress + "%";
-            if (backToTop) backToTop.classList.toggle("visible", window.scrollY > 500);
-
-            let activeId = "home";
-            pageSections.forEach((section) => {
-                if (section.getBoundingClientRect().top <= 150) activeId = section.id;
-            });
-            sectionLinks.forEach((link) => {
-                const active = link.getAttribute("href") === "#" + activeId;
-                link.classList.toggle("active", active);
-                if (active) link.setAttribute("aria-current", "location");
-                else link.removeAttribute("aria-current");
-            });
-        }
-
-        window.addEventListener("scroll", updateScrollUI, { passive: true });
-        window.addEventListener("resize", updateScrollUI);
-        updateScrollUI();
-
-        if (backToTop) {
-            backToTop.addEventListener("click", function () {
-                window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
             });
         }
 
