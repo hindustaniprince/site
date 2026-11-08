@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -13,7 +13,7 @@
 
     <meta name="author" content="Hindustaniprince">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#050816">
+    <meta name="theme-color" content="#050816" id="metaThemeColor">
 
     <!-- Open Graph / Social Preview Meta Tags -->
     <meta property="og:type" content="website">
@@ -21,10 +21,23 @@
     <meta property="og:description"
         content="Explore the official profile, education journey, Geography interests, skills, and creative work of Hindustaniprince.">
     <meta property="og:image" content="profile.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hindustaniprince | Personal Website">
+    <meta name="twitter:description"
+        content="Explore the official profile, education journey, Geography interests, skills, and creative work of Hindustaniprince.">
+    <meta name="twitter:image" content="profile.jpg">
 
     <!-- Inline SVG Favicon (HP Brand Mark) -->
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%238b5cf6'/%3E%3Cstop offset='100%25' stop-color='%233b82f6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%23ffffff' font-family='sans-serif' font-weight='800' font-size='26'%3EHP%3C/text%3E%3C/svg%3E">
+
+    <!-- Prevent Flash of Unstyled Theme on Load -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem("hp-theme") || "dark";
+            document.documentElement.setAttribute("data-theme", savedTheme);
+        })();
+    </script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -88,26 +101,36 @@
             </a>
 
             <div class="nav-links" id="navLinks">
-                <a href="#home">Home</a>
+                <a href="#home" class="active">Home</a>
                 <a href="#about">About</a>
                 <a href="#education">Education</a>
                 <a href="#skills">Skills</a>
                 <a href="#work">My Work</a>
+                <a href="#sukie-note">Sukie ❤️</a>
                 <a href="#social">Social</a>
                 <a href="#contact">Contact</a>
             </div>
 
-            <a href="#contact" class="nav-button">
-                Connect
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
+            <div class="nav-actions">
+                <!-- DAY / NIGHT MODE TOGGLE BUTTON -->
+                <button class="theme-toggle" id="themeToggle" type="button"
+                    aria-label="Switch to Day Mode" title="Toggle Day/Night Mode">
+                    <i class="fa-solid fa-sun sun-icon" aria-hidden="true"></i>
+                    <i class="fa-solid fa-moon moon-icon" aria-hidden="true"></i>
+                </button>
 
-            <button class="menu-toggle" id="menuToggle" type="button"
-                aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+                <a href="#contact" class="nav-button">
+                    Connect
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+                <button class="menu-toggle" id="menuToggle" type="button"
+                    aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
 
         </nav>
     </header>
@@ -117,14 +140,14 @@
          MAIN
     ========================= -->
 
-    <main id="home">
+    <main>
 
 
         <!-- =========================
              HERO
         ========================= -->
 
-        <section class="hero">
+        <section class="hero" id="home">
 
             <div class="hero-left reveal-on-scroll">
 
@@ -389,7 +412,7 @@
 
 
         <!-- =========================
-             EDUCATION
+             EDUCATION & COLLEGE MEMORIES
         ========================= -->
 
         <section class="section" id="education">
@@ -402,17 +425,19 @@
                 </div>
 
                 <h2>
-                    Education &amp;
-                    <span>Learning.</span>
+                    Education &
+                    <span>Memories.</span>
                 </h2>
 
                 <p>
-                    My academic journey and area of study.
+                    My academic journey, area of study, and the
+                    unforgettable bond shared with my college batchmates.
                 </p>
 
             </div>
 
 
+            <!-- PART 1: ACADEMIC DEGREE BANNER CARD -->
             <div class="education-card reveal-on-scroll">
 
                 <div class="education-logo">
@@ -472,6 +497,127 @@
 
             </div>
 
+
+            <!-- PART 2: COLLEGE MEMORIES GRID -->
+            <div class="memory-grid">
+
+                <!-- LEFT CARD: GROUP PHOTO & STORY -->
+                <div class="memory-main-card reveal-on-scroll">
+
+                    <div class="memory-badge">
+                        <span class="memory-dot"></span>
+                        <span>BATCH 2023 – 2027 • CAMPUS CHRONICLES</span>
+                    </div>
+
+                    <figure class="memory-photo-card">
+                        <div class="memory-photo-wrap">
+                            <img
+                                src="College-group.jpg"
+                                alt="Bachelor's Degree Group Photo at H. D. Jain College, Ara"
+                                width="4030"
+                                height="3024"
+                                loading="lazy"
+                                decoding="async">
+                        </div>
+                        <figcaption>
+                            <i class="fa-solid fa-camera-retro"></i>
+                            <span>H. D. Jain College, Ara • Bachelor's Group</span>
+                            <span class="memory-year-tag">2023–27</span>
+                        </figcaption>
+                    </figure>
+
+                    <div class="memory-quote">
+                        <h3>
+                            Days that turned into
+                            <span>memories.</span>
+                        </h3>
+                        <p>
+                            We walked into <strong>H. D. Jain College</strong> for a degree,
+                            but found a brotherhood along the way. One frame holding a
+                            thousand untold stories, laughter, and the golden years of our youth.
+                        </p>
+                    </div>
+
+                    <div class="about-signature memory-signature">
+                        <span>Friendship.</span>
+                        <span>Laughter.</span>
+                        <span>Legacy.</span>
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT: 2x2 MEMORY TRAIT CARDS -->
+                <div class="memory-traits-grid">
+
+                    <!-- 01 -->
+                    <div class="memory-trait-card trait-purple reveal-on-scroll">
+                        <div class="trait-top">
+                            <span class="work-number">01</span>
+                            <div class="info-icon purple">
+                                <i class="fa-solid fa-user-group"></i>
+                            </div>
+                        </div>
+                        <small>THE BROTHERHOOD</small>
+                        <h3>More than just classmates.</h3>
+                        <p>
+                            Strangers on the first day of 2023 who became family —
+                            standing together through every lecture, exam, and life moment.
+                        </p>
+                    </div>
+
+                    <!-- 02 -->
+                    <div class="memory-trait-card trait-blue reveal-on-scroll">
+                        <div class="trait-top">
+                            <span class="work-number">02</span>
+                            <div class="info-icon blue">
+                                <i class="fa-solid fa-earth-asia"></i>
+                            </div>
+                        </div>
+                        <small>HONOURS JOURNEY</small>
+                        <h3>Department of Geography.</h3>
+                        <p>
+                            From mapping sheets and practical labs to deep classroom
+                            discussions that shaped our perspective of the world.
+                        </p>
+                    </div>
+
+                    <!-- 03 -->
+                    <div class="memory-trait-card trait-cyan reveal-on-scroll">
+                        <div class="trait-top">
+                            <span class="work-number">03</span>
+                            <div class="info-icon cyan">
+                                <i class="fa-solid fa-building-columns"></i>
+                            </div>
+                        </div>
+                        <small>HISTORIC CAMPUS</small>
+                        <h3>H. D. Jain College, Ara.</h3>
+                        <p>
+                            Every corridor, bench, and campus corner holds echoes of
+                            our endless conversations and shared ambitions.
+                        </p>
+                    </div>
+
+                    <!-- 04 -->
+                    <div class="memory-trait-card trait-pink reveal-on-scroll">
+                        <div class="trait-top">
+                            <span class="work-number">04</span>
+                            <div class="info-icon pink">
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                        </div>
+                        <small>FROZEN IN TIME</small>
+                        <h3>A chapter to cherish forever.</h3>
+                        <p>
+                            Years from now, when we look back at 2023–2027, this bond
+                            and these golden days will still bring the biggest smile.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
         </section>
 
 
@@ -512,7 +658,7 @@
                             <i class="fa-solid fa-graduation-cap"></i>
                         </div>
 
-                        <h3>Education &amp; Learning</h3>
+                        <h3>Education & Learning</h3>
 
                         <p>
                             Passionate about gaining knowledge,
@@ -533,7 +679,7 @@
                             <i class="fa-solid fa-futbol"></i>
                         </div>
 
-                        <h3>Sports &amp; Fitness</h3>
+                        <h3>Sports & Fitness</h3>
 
                         <p>
                             Passionate about active outdoor sports,
@@ -615,7 +761,7 @@
 
 
         <!-- =========================
-             MY WORK
+             MY WORK (CLICKABLE CARDS)
         ========================= -->
 
         <section class="section work-section" id="work">
@@ -642,8 +788,11 @@
 
             <div class="work-grid">
 
-                <!-- GK & GS -->
-                <div class="work-card work-purple reveal-on-scroll">
+                <!-- 01: GK & GS (Linked to Telegram) -->
+                <a href="https://t.me/its_hindustaniprince"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="work-card work-purple reveal-on-scroll">
                     <div class="work-card-main">
                         <div class="work-card-top">
                             <span class="work-number">01</span>
@@ -654,7 +803,7 @@
 
                         <div class="work-content">
                             <span class="work-label">EDUCATIONAL</span>
-                            <h3>GK &amp; GS Content</h3>
+                            <h3>GK & GS Content</h3>
                             <p>
                                 Creating and exploring educational content
                                 around General Knowledge, General Studies,
@@ -665,13 +814,16 @@
 
                     <div class="work-bottom">
                         <span>LEARN • SHARE • GROW</span>
-                        <i class="fa-solid fa-sparkles" aria-hidden="true"></i>
+                        <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
                     </div>
-                </div>
+                </a>
 
 
-                <!-- AI -->
-                <div class="work-card work-blue reveal-on-scroll">
+                <!-- 02: AI (Linked to Instagram) -->
+                <a href="https://www.instagram.com/Its_hindustaniprince/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="work-card work-blue reveal-on-scroll">
                     <div class="work-card-main">
                         <div class="work-card-top">
                             <span class="work-number">02</span>
@@ -682,7 +834,7 @@
 
                         <div class="work-content">
                             <span class="work-label">EXPLORING</span>
-                            <h3>AI &amp; Creative Tools</h3>
+                            <h3>AI & Creative Tools</h3>
                             <p>
                                 Exploring AI tools and modern creative
                                 technologies to discover new ways of
@@ -695,11 +847,14 @@
                         <span>EXPLORE • EXPERIMENT</span>
                         <i class="fa-solid fa-bolt" aria-hidden="true"></i>
                     </div>
-                </div>
+                </a>
 
 
-                <!-- VIDEO -->
-                <div class="work-card work-cyan reveal-on-scroll">
+                <!-- 03: VIDEO (Linked to YouTube) -->
+                <a href="https://www.youtube.com/channel/UCKNiyUUIqYJOZeQwUQG23dA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="work-card work-cyan reveal-on-scroll">
                     <div class="work-card-main">
                         <div class="work-card-top">
                             <span class="work-number">03</span>
@@ -723,11 +878,14 @@
                         <span>EDIT • CREATE • PRESENT</span>
                         <i class="fa-solid fa-play" aria-hidden="true"></i>
                     </div>
-                </div>
+                </a>
 
 
-                <!-- PC MOBILE -->
-                <div class="work-card work-pink reveal-on-scroll">
+                <!-- 04: PC MOBILE (Linked to Instagram) -->
+                <a href="https://www.instagram.com/Its_hindustaniprince/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="work-card work-pink reveal-on-scroll">
                     <div class="work-card-main">
                         <div class="work-card-top">
                             <span class="work-number">04</span>
@@ -738,7 +896,7 @@
 
                         <div class="work-content">
                             <span class="work-label">DIGITAL</span>
-                            <h3>PC &amp; Mobile Editing</h3>
+                            <h3>PC & Mobile Editing</h3>
                             <p>
                                 Working with PC and mobile editing
                                 tools for creative projects,
@@ -751,6 +909,165 @@
                         <span>PC • MOBILE • DIGITAL</span>
                         <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
                     </div>
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             SUKIE NOTE (05 A LITTLE NOTE — UNIFIED & CUSTOMIZED)
+        ========================= -->
+
+        <section class="section sukie-section" id="sukie-note" aria-labelledby="sukie-title">
+
+            <div class="section-heading reveal-on-scroll">
+
+                <div>
+                    <span class="section-number">05</span>
+                    <span class="section-label">A LITTLE NOTE</span>
+                </div>
+
+                <h2 id="sukie-title">
+                    For
+                    <span>Sukie ❤️</span>
+                </h2>
+
+                <p>
+                    A special corner dedicated to a close friend whose words
+                    inspire, whose thoughts touch the heart, and whose presence
+                    brings positivity.
+                </p>
+
+            </div>
+
+
+            <div class="sukie-grid">
+
+                <!-- LEFT: PHOTO & DEDICATION CARD -->
+                <div class="sukie-main-card reveal-on-scroll">
+
+                    <div class="sukie-badge">
+                        <span class="mahila-mitra-dot"></span>
+                        <span>FOR YOU, SUKIE ♡</span>
+                    </div>
+
+                    <figure class="mahila-mitra-photo-card">
+                        <div class="sukie-photo-wrap">
+                            <img
+                                src="mahila-mitra.png"
+                                alt="Sukie illustration"
+                                width="800"
+                                height="500"
+                                loading="lazy"
+                                decoding="async">
+                        </div>
+                        <figcaption>
+                            <i class="fa-solid fa-sun"></i>
+                            <span>A Little Sunshine ✨</span>
+                            <span class="mahila-mitra-heart" aria-hidden="true">♡</span>
+                        </figcaption>
+                    </figure>
+
+                    <div class="sukie-quote">
+                        <h3>
+                            Keep shining,
+                            <span>Sukie.</span>
+                        </h3>
+                        <p>
+                            In a world full of noise, finding a close friend whose
+                            words carry both warmth and deep meaning is rare. Whether
+                            it is a quiet conversation or the thoughts you write and
+                            share, your perspective always leaves a mark.
+                        </p>
+                    </div>
+
+                    <div class="about-signature sukie-signature">
+                        <span>Grace.</span>
+                        <span>Wisdom.</span>
+                        <span>Positivity.</span>
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT: 2x2 TRAIT CARDS (100% MATCHED WITH WEBSITE DNA) -->
+                <div class="sukie-traits-grid">
+
+                    <!-- 01: QUIET GRACE -->
+                    <div class="sukie-trait-card trait-purple reveal-on-scroll">
+                        <div class="trait-top">
+                            <span class="work-number">01</span>
+                            <div class="info-icon purple">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                        </div>
+                        <small>QUIET GRACE</small>
+                        <h3>There is a rare calm in the way you exist. ✨</h3>
+                        <p>
+                            You carry so much strength and maturity behind that
+                            gentle smile. Even on the loudest days, the patience
+                            and effortless grace with which you handle life is
+                            something truly admirable.
+                        </p>
+                    </div>
+
+                    <!-- 02: VOICE OF REALITY (SAMAJIK SACHAI & WRITING) -->
+                    <div class="sukie-trait-card trait-pink reveal-on-scroll">
+                        <div class="trait-top">
+                            <span class="work-number">02</span>
+                            <div class="info-icon pink">
+                                <i class="fa-solid fa-feather-pointed"></i>
+                            </div>
+                        </div>
+                        <small>VOICE OF REALITY</small>
+                        <h3>You write the truths that touch the heart. ❤️</h3>
+                        <p>
+                            The way you observe society and put the real truths
+                            of life into words is honestly rare. What you write
+                            doesn't just stay on the screen — it goes straight to
+                            the heart and makes people pause and think.
+                        </p>
+                    </div>
+
+                    <!-- 03: WORDS THAT TEACH (MOTIVATIONAL POSTS & LEARNING) -->
+                    <div class="sukie-trait-card trait-cyan reveal-on-scroll">
+                        <div class="trait-top">
+                            <span class="work-number">03</span>
+                            <div class="info-icon cyan">
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <small>WORDS THAT TEACH</small>
+                        <h3>Every post you share leaves a lesson behind. ✨</h3>
+                        <p>
+                            Your motivational posts and lines hit differently
+                            because they are so genuine. Reading what you share
+                            doesn't just lift a heavy mood — it quietly teaches
+                            something meaningful about life every single time.
+                        </p>
+                    </div>
+
+                    <!-- 04: ALWAYS REMEMBER -->
+                    <div class="sukie-trait-card trait-blue reveal-on-scroll">
+                        <div class="trait-top">
+                            <span class="work-number">04</span>
+                            <div class="info-icon blue">
+                                <i class="fa-solid fa-gem"></i>
+                            </div>
+                        </div>
+                        <small>ALWAYS REMEMBER</small>
+                        <h3>Never stop being the person you are. 🫂</h3>
+                        <p>
+                            A mind that thinks this deeply and a heart that
+                            inspires others is a rare gift. Never doubt your
+                            worth, Sukie — your words, your presence, and you
+                            truly matter more than you know. ♡
+                        </p>
+                    </div>
+
                 </div>
 
             </div>
@@ -770,7 +1087,7 @@
                 <div class="section-heading reveal-on-scroll">
 
                     <div>
-                        <span class="section-number">05</span>
+                        <span class="section-number">06</span>
                         <span class="section-label">SOCIAL PRESENCE</span>
                     </div>
 
@@ -927,7 +1244,7 @@
             <div class="section-heading reveal-on-scroll">
 
                 <div>
-                    <span class="section-number">06</span>
+                    <span class="section-number">07</span>
                     <span class="section-label">GET IN TOUCH</span>
                 </div>
 
@@ -984,7 +1301,7 @@
                                 <i class="fa-solid fa-lightbulb"></i>
                             </div>
                             <div>
-                                <strong>Ideas &amp; Collaboration</strong>
+                                <strong>Ideas & Collaboration</strong>
                                 <span>Open to useful ideas and creative work.</span>
                             </div>
                         </div>
@@ -1158,6 +1475,14 @@
     </footer>
 
 
+    <!-- =========================
+         BACK TO TOP FLOATING BUTTON
+    ========================= -->
+
+    <a href="#home" class="back-to-top" id="backToTop" aria-label="Scroll back to top" title="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
+
 
     <!-- =========================
          JAVASCRIPT
@@ -1165,7 +1490,44 @@
 
     <script>
         /* =========================
-           TYPING EFFECT
+           1. DAY / NIGHT THEME TOGGLE
+        ========================= */
+        const themeToggle = document.getElementById("themeToggle");
+        const metaThemeColor = document.getElementById("metaThemeColor");
+
+        function updateThemeUI(theme) {
+            document.documentElement.setAttribute("data-theme", theme);
+            localStorage.setItem("hp-theme", theme);
+
+            if (metaThemeColor) {
+                metaThemeColor.setAttribute(
+                    "content",
+                    theme === "light" ? "#f6f8fc" : "#050816"
+                );
+            }
+
+            if (themeToggle) {
+                themeToggle.setAttribute(
+                    "aria-label",
+                    theme === "light" ? "Switch to Night Mode" : "Switch to Day Mode"
+                );
+            }
+        }
+
+        const currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
+        updateThemeUI(currentTheme);
+
+        if (themeToggle) {
+            themeToggle.addEventListener("click", () => {
+                const activeTheme = document.documentElement.getAttribute("data-theme");
+                const nextTheme = activeTheme === "light" ? "dark" : "light";
+                updateThemeUI(nextTheme);
+            });
+        }
+
+
+        /* =========================
+           2. TYPING EFFECT
         ========================= */
         const typingTextElement = document.getElementById("typingText");
 
@@ -1207,8 +1569,9 @@
             setTimeout(typeEffect, typeSpeed);
         }
 
+
         /* =========================
-           DOM READY
+           3. DOM READY
         ========================= */
         document.addEventListener("DOMContentLoaded", () => {
             typeEffect();
@@ -1219,8 +1582,9 @@
             }
         });
 
+
         /* =========================
-           SCROLL REVEAL
+           4. SCROLL REVEAL
         ========================= */
         const observerOptions = {
             threshold: 0.12,
@@ -1240,8 +1604,55 @@
             observer.observe(element);
         });
 
+
         /* =========================
-           MOUSE GLOW
+           5. SCROLLSPY (ACTIVE NAVBAR)
+              & BACK-TO-TOP BUTTON
+        ========================= */
+        const sections = document.querySelectorAll("main section[id]");
+        const navItems = document.querySelectorAll(".nav-links a");
+        const backToTopButton = document.getElementById("backToTop");
+
+        function handleScrollUpdates() {
+            const scrollY = window.scrollY;
+
+            if (backToTopButton) {
+                if (scrollY > 400) {
+                    backToTopButton.classList.add("visible");
+                } else {
+                    backToTopButton.classList.remove("visible");
+                }
+            }
+
+            let currentSectionId = "home";
+            const scrollPosition = scrollY + 180;
+
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+
+                if (
+                    scrollPosition >= sectionTop &&
+                    scrollPosition < sectionTop + sectionHeight
+                ) {
+                    currentSectionId = section.getAttribute("id");
+                }
+            });
+
+            navItems.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href") === `#${currentSectionId}`) {
+                    link.classList.add("active");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", handleScrollUpdates, { passive: true });
+        handleScrollUpdates();
+
+
+        /* =========================
+           6. MOUSE GLOW (GPU ACCELERATED)
         ========================= */
         const cursorGlow = document.getElementById("cursorGlow");
 
@@ -1249,15 +1660,16 @@
             "mousemove",
             (event) => {
                 if (cursorGlow) {
-                    cursorGlow.style.left = event.clientX + "px";
-                    cursorGlow.style.top = event.clientY + "px";
+                    cursorGlow.style.transform =
+                        `translate3d(${event.clientX - 150}px, ${event.clientY - 150}px, 0)`;
                 }
             },
             { passive: true }
         );
 
+
         /* =========================
-           MOBILE NAVIGATION
+           7. MOBILE NAVIGATION
         ========================= */
         const menuToggle = document.getElementById("menuToggle");
         const navLinks = document.getElementById("navLinks");
@@ -1307,8 +1719,9 @@
             });
         }
 
+
         /* =========================
-           CONTACT FORM — WEB3FORMS
+           8. CONTACT FORM — WEB3FORMS
         ========================= */
         const contactForm = document.getElementById("contactForm");
         const formNote = document.getElementById("formNote");
@@ -1319,14 +1732,19 @@
 
                 const submitButton = contactForm.querySelector(".contact-submit");
                 const accessKeyInput = contactForm.querySelector('input[name="access_key"]');
+                const keyValue = accessKeyInput ? accessKeyInput.value.trim() : "";
 
-                if (accessKeyInput && accessKeyInput.value === "YOUR_WEB3FORMS_ACCESS_KEY") {
+                if (
+                    !keyValue ||
+                    keyValue === "YOUR_WEB3FORMS_ACCESS_KEY" ||
+                    keyValue === "xxxxx-xxxxx-xxxxxx"
+                ) {
                     formNote.textContent = "Note: Please add your Web3Forms Access Key in index.html to enable live messages.";
                     formNote.style.color = "#f59e0b";
                     return;
                 }
 
-                formNote.style.color = "#a5adc4";
+                formNote.style.color = "var(--text-muted)";
                 formNote.textContent = "Sending message...";
                 submitButton.disabled = true;
 
@@ -1348,11 +1766,11 @@
                         formNote.textContent = "Message sent successfully! Thank you.";
                         contactForm.reset();
                     } else {
-                        formNote.style.color = "#f87171";
+                        formNote.style.color = "#ef4444";
                         formNote.textContent = data.message || "Something went wrong. Please try again.";
                     }
                 } catch (error) {
-                    formNote.style.color = "#f87171";
+                    formNote.style.color = "#ef4444";
                     formNote.textContent = "Unable to send the message right now. Please try again.";
                 } finally {
                     submitButton.disabled = false;
