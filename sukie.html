@@ -162,8 +162,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      padding: 20px 16px 100px;
+      justify-content: center;
+      padding: 24px 16px;
       max-width: 480px;
       margin: 0 auto;
     }
@@ -178,7 +178,6 @@
       padding: 24px 18px;
       text-align: center;
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 46, 147, 0.28);
-      margin-top: 12px;
     }
 
     .date-pill {
@@ -360,114 +359,6 @@
       font-weight: 700;
     }
 
-    /* Bottom Action Bar */
-    .bottom-bar {
-      position: fixed;
-      bottom: 14px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: calc(100% - 28px);
-      max-width: 450px;
-      z-index: 40;
-      display: flex;
-      gap: 10px;
-      background: rgba(18, 3, 36, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      backdrop-filter: blur(12px);
-      padding: 10px;
-      border-radius: 22px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-    }
-
-    .btn-custom {
-      flex: 1;
-      padding: 11px 12px;
-      border-radius: 14px;
-      border: none;
-      font-family: inherit;
-      font-weight: 700;
-      font-size: 0.86rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      transition: transform 0.2s;
-    }
-
-    .btn-custom:active {
-      transform: scale(0.96);
-    }
-
-    .btn-edit {
-      background: linear-gradient(135deg, #ff2e93, #7928ca);
-      color: #fff;
-    }
-
-    .btn-wa {
-      background: linear-gradient(135deg, #25D366, #128C7E);
-      color: #fff;
-    }
-
-    /* Customize Modal */
-    #customModal {
-      position: fixed;
-      inset: 0;
-      z-index: 120;
-      background: rgba(0, 0, 0, 0.78);
-      backdrop-filter: blur(6px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .modal-box {
-      width: 100%;
-      max-width: 380px;
-      background: #1a0633;
-      border: 1.5px solid var(--gold);
-      border-radius: 24px;
-      padding: 22px 18px;
-      text-align: center;
-      box-shadow: 0 0 35px rgba(255, 46, 147, 0.5);
-    }
-
-    .modal-box h3 {
-      color: var(--gold);
-      margin-bottom: 14px;
-      font-size: 1.2rem;
-    }
-
-    .input-group {
-      text-align: left;
-      margin-bottom: 12px;
-    }
-
-    .input-group label {
-      display: block;
-      font-size: 0.8rem;
-      color: #ffd1e8;
-      margin-bottom: 4px;
-    }
-
-    .input-group input {
-      width: 100%;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.3);
-      background: rgba(255,255,255,0.1);
-      color: #fff;
-      font-family: inherit;
-      font-size: 0.95rem;
-    }
-
-    .modal-actions {
-      display: flex;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
     /* Keyframes */
     @keyframes shine {
       to { background-position: 200% center; }
@@ -577,31 +468,6 @@
     </div>
   </div>
 
-  <!-- Bottom Bar for Customizing & Sharing -->
-  <div class="bottom-bar">
-    <button class="btn-custom btn-edit" onclick="openModal()">✨ Naam / Link Banayein</button>
-    <button class="btn-custom btn-wa" onclick="shareOnWhatsApp()">📲 WhatsApp Bhejein</button>
-  </div>
-
-  <!-- Modal for Customizing Name -->
-  <div id="customModal">
-    <div class="modal-box">
-      <h3>🎁 Apna Birthday Link Banayein</h3>
-      <div class="input-group">
-        <label>Jinka Birthday Hai (Naam):</label>
-        <input type="text" id="inputReceiver" placeholder="Sukie 🥰" value="Sukie 🥰" />
-      </div>
-      <div class="input-group">
-        <label>Bhejne Wale Ka Naam:</label>
-        <input type="text" id="inputSender" placeholder="Aapka Naam" value="Prince 💖" />
-      </div>
-      <div class="modal-actions">
-        <button class="btn-custom" style="background:#444;color:#fff;" onclick="closeModal()">Bnd Karein</button>
-        <button class="btn-custom btn-edit" onclick="generateCustomLink()">Naya Link Banayein</button>
-      </div>
-    </div>
-  </div>
-
   <script>
     // 1. Smart Photo Fallback (tries suki.jpg -> sukie.jpg -> Suki.jpg -> suki.png -> suki.jpeg)
     const fallbackFiles = ["sukie.jpg", "Suki.jpg", "suki.png", "suki.jpeg", "Sukie.jpg"];
@@ -630,10 +496,7 @@
       reader.readAsDataURL(file);
     }
 
-    // 2. Base64 URL Parameter Logic (like diwali.desh.app)
-    function encodeUTF8Base64(str) {
-      return btoa(encodeURIComponent(str));
-    }
+    // 2. Base64 URL Parameter Logic
     function decodeUTF8Base64(str) {
       try {
         return decodeURIComponent(atob(str));
@@ -674,8 +537,6 @@
       renderGradientName(document.getElementById("displayName"), currentReceiver);
       document.getElementById("curtainName").innerText = "For " + currentReceiver;
       document.getElementById("senderName").innerText = currentSender;
-      document.getElementById("inputReceiver").value = currentReceiver;
-      document.getElementById("inputSender").value = currentSender;
     }
     updateTexts();
 
@@ -757,31 +618,7 @@
       }
     }
 
-    // 6. Custom Link Modal & WhatsApp Share
-    function openModal() {
-      document.getElementById("customModal").style.display = "flex";
-    }
-    function closeModal() {
-      document.getElementById("customModal").style.display = "none";
-    }
-    function generateCustomLink() {
-      const r = document.getElementById("inputReceiver").value.trim() || "Sukie 🥰";
-      const s = document.getElementById("inputSender").value.trim() || "Prince 💖";
-      currentReceiver = r;
-      currentSender = s;
-      updateTexts();
-      const newUrl = `${window.location.origin}${window.location.pathname}?n=${encodeUTF8Base64(r)}&f=${encodeUTF8Base64(s)}`;
-      window.history.replaceState({}, "", newUrl);
-      closeModal();
-    }
-
-    function shareOnWhatsApp() {
-      const shareUrl = window.location.href;
-      const text = `🎂 *Happy 11/11 Birthday ${currentReceiver}!* 🥰✨\nMaine aapke liye ek khaas Birthday Surprise banaya hai, is neele link par touch karke dekhein 👇🎁\n\n${shareUrl}`;
-      window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
-    }
-
-    // 7. Canvas Fireworks & Floating Hearts Animation
+    // 6. Canvas Fireworks & Floating Hearts Animation
     const canvas = document.getElementById("bgCanvas");
     const ctx = canvas.getContext("2d");
     let cw = canvas.width = window.innerWidth;
