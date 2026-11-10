@@ -209,7 +209,6 @@
       border-radius: 50%;
       padding: 4px;
       background: conic-gradient(#ff2e93, #ffd700, #00f2fe, #ff2e93);
-      animation: spinRing 6s linear infinite;
       box-shadow: 0 0 28px rgba(255, 46, 147, 0.7);
     }
 
@@ -272,21 +271,29 @@
     .recipient-name {
       font-size: 2.1rem;
       font-weight: 800;
+      margin: 4px 0 12px;
+      filter: drop-shadow(0 2px 10px rgba(255, 46, 147, 0.6));
+    }
+
+    .recipient-name .grad-text {
       background: linear-gradient(90deg, #fff, #ffb3d9, #ffd700, #fff);
       background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: shine 3s linear infinite;
-      margin: 4px 0 12px;
-      filter: drop-shadow(0 2px 10px rgba(255, 46, 147, 0.6));
+    }
+
+    .recipient-name .emoji-clear {
+      font-style: normal;
+      margin-left: 2px;
     }
 
     .shayari-box {
       background: rgba(255, 255, 255, 0.08);
       border-radius: 18px;
-      padding: 14px 16px;
-      font-size: 0.94rem;
-      line-height: 1.55;
+      padding: 15px 16px;
+      font-size: 0.95rem;
+      line-height: 1.6;
       color: #fce4f2;
       border-left: 3px solid var(--gold);
       border-right: 3px solid var(--primary);
@@ -525,12 +532,13 @@
       </div>
 
       <div class="happy-text">Happy Birthday</div>
-      <div class="recipient-name" id="displayName">Sukie 🥰</div>
+      <div class="recipient-name" id="displayName"><span class="grad-text">Sukie</span> <span class="emoji-clear">🥰</span></div>
 
       <div class="shayari-box">
-        "11/11 ki tarah aap bhi duniya mein sabse khaas ho ✨<br/>
-        Har dua qubool ho aapki, hamesha chehre par muskaan rahe,<br/>
-        Zindagi ka har pal khushiyon aur pyaar se bhara rahe! 💖🥳"
+        "Taareef kya karun tumhari, tum khud ek misaal ho, ✨<br/>
+        Thodi si nadan, thodi cool, par bilkul kamaal ho,<br/>
+        Hamesha aise hi hasti-khilkhilati rehna zindagi bhar,<br/>
+        Kyunki meri sabse favourite dost sirf tum hi ho! 🥰🥂"
       </div>
 
       <!-- Interactive 11/11 Birthday Cake -->
@@ -564,7 +572,7 @@
       </div>
 
       <div class="sender-tag">
-        With Lots of Love ❤️ <span id="senderName">Aapka Khaas Dost</span>
+        With Lots of Love ❤️ <span id="senderName">Prince 💖</span>
       </div>
     </div>
   </div>
@@ -634,6 +642,27 @@
       }
     }
 
+    // Render name so gradient only applies to text and emojis stay crystal clear
+    function renderGradientName(el, text) {
+      el.innerHTML = '';
+      const emojiRegex = /([\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]+)/gu;
+      const parts = text.split(emojiRegex);
+      parts.forEach(part => {
+        if (!part) return;
+        if (/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u.test(part)) {
+          const s = document.createElement('span');
+          s.className = 'emoji-clear';
+          s.textContent = part;
+          el.appendChild(s);
+        } else {
+          const s = document.createElement('span');
+          s.className = 'grad-text';
+          s.textContent = part;
+          el.appendChild(s);
+        }
+      });
+    }
+
     const urlParams = new URLSearchParams(window.location.search);
     const rawN = urlParams.get("n");
     const rawF = urlParams.get("f");
@@ -642,7 +671,7 @@
     let currentSender = rawF ? decodeUTF8Base64(rawF) : "Prince 💖";
 
     function updateTexts() {
-      document.getElementById("displayName").innerText = currentReceiver;
+      renderGradientName(document.getElementById("displayName"), currentReceiver);
       document.getElementById("curtainName").innerText = "For " + currentReceiver;
       document.getElementById("senderName").innerText = currentSender;
       document.getElementById("inputReceiver").value = currentReceiver;
@@ -748,10 +777,7 @@
 
     function shareOnWhatsApp() {
       const shareUrl = window.location.href;
-      const text = `🎂 *Happy 11/11 Birthday ${currentReceiver}!* 🥰✨
-Maine aapke liye ek khaas Birthday Surprise banaya hai, is neele link par touch karke dekhein 👇🎁
-
-${shareUrl}`;
+      const text = `🎂 *Happy 11/11 Birthday ${currentReceiver}!* 🥰✨\nMaine aapke liye ek khaas Birthday Surprise banaya hai, is neele link par touch karke dekhein 👇🎁\n\n${shareUrl}`;
       window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
     }
 
