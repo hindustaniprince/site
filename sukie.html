@@ -464,7 +464,7 @@
       </div>
 
       <div class="sender-tag">
-        With Lots of Love ❤️ <span id="senderName">Prince 💖</span>
+        With Lots of Love ❤️ <span id="senderName">From Prince  💖</span>
       </div>
     </div>
   </div>
@@ -532,7 +532,7 @@
     const rawF = urlParams.get("f");
 
     let currentReceiver = rawN ? decodeUTF8Base64(rawN) : "Sukie 🥰";
-    let currentSender = rawF ? decodeUTF8Base64(rawF) : "Prince 💖";
+    let currentSender = rawF ? decodeUTF8Base64(rawF) : "From Prince 💖";
 
     function updateTexts() {
       renderGradientName(document.getElementById("displayName"), currentReceiver);
@@ -541,62 +541,26 @@
     }
     updateTexts();
 
-    // 3. Web Audio API Happy Birthday Music Box
-    let audioCtx = null;
+// 3. Real MP3 Song Player
+    const bgSong = document.getElementById("bgSong");
     let isPlayingMusic = false;
-    let melodyTimeout = null;
-
-    const birthdayNotes = [
-      [261.63, 0.35], [261.63, 0.25], [293.66, 0.55], [261.63, 0.55], [349.23, 0.55], [329.63, 1.0],
-      [261.63, 0.35], [261.63, 0.25], [293.66, 0.55], [261.63, 0.55], [392.00, 0.55], [349.23, 1.0],
-      [261.63, 0.35], [261.63, 0.25], [523.25, 0.55], [440.00, 0.55], [349.23, 0.55], [329.63, 0.55], [293.66, 0.9],
-      [466.16, 0.35], [466.16, 0.25], [440.00, 0.55], [349.23, 0.55], [392.00, 0.55], [349.23, 1.1]
-    ];
-
-    function playNote(freq, duration) {
-      if (!audioCtx || !isPlayingMusic) return;
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      osc.type = "triangle";
-      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-      gain.gain.setValueAtTime(0.18, audioCtx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-      osc.start();
-      osc.stop(audioCtx.currentTime + duration);
-    }
-
-    function playBirthdayLoop(index = 0) {
-      if (!isPlayingMusic) return;
-      const [freq, dur] = birthdayNotes[index];
-      playNote(freq, dur);
-      melodyTimeout = setTimeout(() => {
-        playBirthdayLoop((index + 1) % birthdayNotes.length);
-      }, dur * 650);
-    }
 
     function startMusic() {
-      if (!audioCtx) {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      }
-      if (audioCtx.state === "suspended") audioCtx.resume();
-      isPlayingMusic = true;
-      document.getElementById("musicBtn").innerText = "🎵";
-      clearTimeout(melodyTimeout);
-      playBirthdayLoop(0);
+      bgSong.play().then(() => {
+        isPlayingMusic = true;
+        document.getElementById("musicBtn").innerText = "🎵";
+      }).catch(err => console.log("Audio play error:", err));
     }
 
     document.getElementById("musicBtn").addEventListener("click", () => {
       if (isPlayingMusic) {
+        bgSong.pause();
         isPlayingMusic = false;
-        clearTimeout(melodyTimeout);
         document.getElementById("musicBtn").innerText = "🔇";
       } else {
         startMusic();
       }
     });
-
     // 4. Open Curtain & Trigger Celebration
     function openSurprise() {
       document.getElementById("curtainOverlay").classList.add("opened");
