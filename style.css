@@ -38,6 +38,8 @@
     --edu-card-bg: linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(37, 99, 235, 0.04));
     --memory-main-bg: linear-gradient(145deg, rgba(139, 92, 246, 0.08), rgba(37, 99, 235, 0.03));
     --sukie-card-bg: linear-gradient(145deg, rgba(139, 92, 246, 0.08), rgba(236, 72, 153, 0.035));
+    --sukie-channel-bg: linear-gradient(135deg, rgba(139, 92, 246, 0.11) 0%, rgba(236, 72, 153, 0.07) 52%, rgba(56, 189, 248, 0.08) 100%);
+    --sukie-channel-border: rgba(236, 72, 153, 0.26);
     --guide-card-bg: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(37, 99, 235, 0.10));
     --contact-intro-bg: linear-gradient(145deg, rgba(139, 92, 246, 0.08), rgba(37, 99, 235, 0.025));
 
@@ -113,6 +115,8 @@
     --edu-card-bg: linear-gradient(135deg, #ffffff 0%, #f5f3ff 60%, #eff6ff 100%);
     --memory-main-bg: linear-gradient(145deg, #ffffff 0%, #f5f3ff 55%, #eff6ff 100%);
     --sukie-card-bg: linear-gradient(145deg, #ffffff 0%, #faf5ff 55%, #fdf2f8 100%);
+    --sukie-channel-bg: linear-gradient(135deg, #ffffff 0%, #fdf2f8 52%, #f0f9ff 100%);
+    --sukie-channel-border: rgba(236, 72, 153, 0.25);
     --guide-card-bg: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 50%, #e0e7ff 100%);
     --contact-intro-bg: linear-gradient(145deg, #ffffff 0%, #f5f3ff 55%, #eff6ff 100%);
 
@@ -2051,14 +2055,14 @@ main {
     line-height: 1.7;
 }
 
-/* SUKIE FEATURED TELEGRAM CHANNEL BANNER CARD (100% UNIFIED THEME + COMPACT MOBILE) */
+/* SUKIE FEATURED TELEGRAM CHANNEL BANNER CARD */
 .sukie-channel-card {
     position: relative;
     margin-top: 25px;
     padding: 32px 35px;
-    border: 1px solid var(--surface-border);
+    border: 1px solid var(--sukie-channel-border);
     border-radius: 25px;
-    background: var(--edu-card-bg);
+    background: var(--sukie-channel-bg);
     box-shadow: var(--surface-shadow);
     display: flex;
     align-items: center;
@@ -2076,11 +2080,11 @@ main {
 .sukie-channel-card::before {
     content: "";
     position: absolute;
-    width: 220px;
-    height: 220px;
-    right: -100px;
-    bottom: -110px;
-    border: 1px solid rgba(139, 92, 246, 0.12);
+    width: 240px;
+    height: 240px;
+    right: -95px;
+    bottom: -115px;
+    border: 1px solid rgba(236, 72, 153, 0.15);
     border-radius: 50%;
     pointer-events: none;
     transition: transform 0.45s ease;
@@ -2089,19 +2093,19 @@ main {
 .sukie-channel-card::after {
     content: "";
     position: absolute;
-    width: 120px;
-    height: 120px;
-    right: 55px;
-    top: -60px;
-    border: 1px solid rgba(59, 130, 246, 0.10);
+    width: 130px;
+    height: 130px;
+    right: 65px;
+    top: -65px;
+    border: 1px solid rgba(56, 189, 248, 0.14);
     border-radius: 50%;
     pointer-events: none;
 }
 
 .sukie-channel-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--surface-hover-border);
-    box-shadow: var(--surface-hover-shadow);
+    transform: translateY(-6px);
+    border-color: rgba(236, 72, 153, 0.52);
+    box-shadow: 0 24px 60px rgba(236, 72, 153, 0.16), var(--surface-hover-shadow);
 }
 
 .sukie-channel-card:hover::before {
@@ -2109,101 +2113,94 @@ main {
 }
 
 .sukie-channel-card:focus-visible {
-    outline: 2px solid var(--accent-purple);
+    outline: 2px solid #ec4899;
     outline-offset: 3px;
 }
 
 .sukie-channel-left {
     position: relative;
     z-index: 2;
-    display: grid;
-    grid-template-columns: 75px minmax(0, 1fr);
-    grid-template-areas:
-        "emblem head"
-        "emblem bio"
-        "emblem tags";
-    column-gap: 26px;
-    row-gap: 8px;
+    display: flex;
     align-items: center;
+    gap: 26px;
     min-width: 0;
     flex: 1;
 }
 
 .sukie-channel-emblem {
-    grid-area: emblem;
-    align-self: center;
     position: relative;
-    width: 75px;
-    height: 75px;
-    border-radius: 20px;
-    background: rgba(139, 92, 246, 0.12);
-    border: 1px solid rgba(139, 92, 246, 0.24);
+    width: 76px;
+    height: 76px;
+    flex-shrink: 0;
+    border-radius: 22px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.18), rgba(236, 72, 153, 0.18), rgba(56, 189, 248, 0.18));
+    border: 1px solid rgba(236, 72, 153, 0.28);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--accent-purple);
-    font-size: 30px;
-    box-shadow: 0 10px 25px rgba(124, 58, 237, 0.16);
-    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    color: #38bdf8;
+    font-size: 32px;
+    box-shadow: 0 12px 30px rgba(56, 189, 248, 0.16);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-[data-theme="dark"] .sukie-channel-emblem {
-    color: #a78bfa;
+[data-theme="light"] .sukie-channel-emblem {
+    color: #0284c7;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(236, 72, 153, 0.12), rgba(56, 189, 248, 0.15));
 }
 
 .sukie-channel-card:hover .sukie-channel-emblem {
-    transform: scale(1.05);
-    border-color: rgba(139, 92, 246, 0.45);
-    box-shadow: 0 14px 32px rgba(124, 58, 237, 0.26);
+    transform: scale(1.06) rotate(-4deg);
+    box-shadow: 0 16px 36px rgba(236, 72, 153, 0.25);
 }
 
 .emblem-ring {
     position: absolute;
-    inset: -5px;
-    border-radius: 24px;
-    border: 1px dashed rgba(139, 92, 246, 0.32);
+    inset: -6px;
+    border-radius: 26px;
+    border: 1px dashed rgba(236, 72, 153, 0.35);
     pointer-events: none;
 }
 
 .emblem-sparkle {
     position: absolute;
-    right: -5px;
-    bottom: -5px;
-    width: 24px;
-    height: 24px;
+    right: -6px;
+    bottom: -6px;
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
     background: var(--floating-card-bg);
-    border: 1px solid var(--floating-card-border);
+    border: 1px solid rgba(236, 72, 153, 0.35);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 11px;
+    font-size: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.sukie-channel-head {
-    grid-area: head;
+.sukie-channel-main {
     min-width: 0;
+    flex: 1;
 }
 
 .sukie-channel-badges {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .sukie-channel-live {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 6px 12px;
+    padding: 6px 13px;
     border-radius: 50px;
-    background: var(--control-bg);
-    border: 1px solid var(--control-border);
-    color: var(--accent-purple-soft);
+    background: var(--sukie-badge-bg);
+    border: 1px solid rgba(236, 72, 153, 0.24);
+    color: var(--sukie-badge-text);
     font-size: 10px;
-    letter-spacing: 1.4px;
+    letter-spacing: 1.5px;
     font-weight: 800;
 }
 
@@ -2211,30 +2208,35 @@ main {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 5px 11px;
-    border-radius: 8px;
-    background: rgba(139, 92, 246, 0.12);
-    border: 1px solid rgba(139, 92, 246, 0.22);
-    color: var(--accent-purple-soft);
+    padding: 6px 12px;
+    border-radius: 50px;
+    background: rgba(56, 189, 248, 0.10);
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    color: #38bdf8;
     font-family: "Space Grotesk", sans-serif;
     font-size: 11px;
     font-weight: 700;
 }
 
-.sukie-channel-head h3 {
-    margin-top: 8px;
+[data-theme="light"] .sukie-channel-handle {
+    color: #0284c7;
+    background: rgba(2, 132, 199, 0.08);
+}
+
+.sukie-channel-main h3 {
+    margin-top: 10px;
     font-family: "Space Grotesk", sans-serif;
-    font-size: 25px;
+    font-size: 26px;
     line-height: 1.2;
     letter-spacing: -0.5px;
     color: var(--text-main);
 }
 
 .sukie-channel-bio {
-    grid-area: bio;
+    margin-top: 8px;
     color: var(--text-muted);
-    font-size: 13.5px;
-    line-height: 1.65;
+    font-size: 14px;
+    line-height: 1.7;
     max-width: 640px;
 }
 
@@ -2243,29 +2245,24 @@ main {
 }
 
 .sukie-channel-tags {
-    grid-area: tags;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 4px;
+    gap: 18px;
+    margin-top: 14px;
 }
 
 .sukie-channel-tags span {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 5px 11px;
-    border-radius: 8px;
-    background: var(--control-bg);
-    border: 1px solid var(--surface-border);
+    gap: 7px;
     color: var(--text-secondary);
-    font-size: 12px;
+    font-size: 12.5px;
     font-weight: 600;
 }
 
 .sukie-channel-tags i {
-    color: var(--accent-purple);
-    font-size: 11.5px;
+    color: #ec4899;
+    font-size: 12px;
 }
 
 .sukie-channel-cta {
@@ -2277,18 +2274,18 @@ main {
     justify-content: center;
     gap: 10px;
     padding: 15px 24px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    border-radius: 14px;
+    background: linear-gradient(135deg, #ec4899, #8b5cf6, #3b82f6);
     color: #ffffff;
     font-size: 14px;
     font-weight: 700;
-    box-shadow: 0 12px 35px rgba(99, 102, 241, 0.28);
+    box-shadow: 0 12px 32px rgba(236, 72, 153, 0.28);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .sukie-channel-card:hover .sukie-channel-cta {
     transform: translateY(-2px);
-    box-shadow: 0 16px 42px rgba(99, 102, 241, 0.38);
+    box-shadow: 0 16px 40px rgba(236, 72, 153, 0.40);
 }
 
 .sukie-channel-cta .cta-arrow {
@@ -3160,8 +3157,7 @@ footer {
 
     .sukie-channel-card {
         flex-direction: column;
-        align-items: stretch;
-        gap: 20px;
+        align-items: flex-start;
     }
 
     .sukie-channel-cta {
@@ -3285,51 +3281,17 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .education-card {
+    .education-card,
+    .sukie-channel-card {
         flex-direction: column;
         align-items: flex-start;
-        padding: 26px;
-    }
-
-    .sukie-channel-card {
-        padding: 22px;
-        gap: 16px;
+        padding: 24px;
     }
 
     .sukie-channel-left {
-        grid-template-columns: 58px minmax(0, 1fr);
-        grid-template-areas:
-            "emblem head"
-            "bio bio"
-            "tags tags";
-        column-gap: 15px;
-        row-gap: 12px;
-        align-items: center;
-    }
-
-    .sukie-channel-emblem {
-        width: 58px;
-        height: 58px;
-        border-radius: 16px;
-        font-size: 24px;
-    }
-
-    .emblem-ring {
-        inset: -4px;
-        border-radius: 19px;
-    }
-
-    .emblem-sparkle {
-        width: 20px;
-        height: 20px;
-        font-size: 10px;
-        right: -4px;
-        bottom: -4px;
-    }
-
-    .sukie-channel-head h3 {
-        font-size: 20px;
-        margin-top: 6px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
     }
 
     .education-number {
@@ -3475,60 +3437,18 @@ footer {
 
     .about-main,
     .memory-main-card,
-    .sukie-main-card {
+    .sukie-main-card,
+    .sukie-channel-card {
         padding: 20px;
     }
 
-    .sukie-channel-card {
-        padding: 18px;
-        gap: 14px;
-    }
-
-    .sukie-channel-left {
-        grid-template-columns: 52px minmax(0, 1fr);
-        column-gap: 12px;
-        row-gap: 10px;
-    }
-
-    .sukie-channel-emblem {
-        width: 52px;
-        height: 52px;
-        border-radius: 14px;
-        font-size: 22px;
-    }
-
-    .sukie-channel-live {
-        padding: 4px 9px;
-        font-size: 9px;
-        letter-spacing: 1.1px;
-    }
-
-    .sukie-channel-handle {
-        padding: 4px 8px;
-        font-size: 10px;
-    }
-
-    .sukie-channel-head h3 {
-        font-size: 18.5px;
-    }
-
-    .sukie-channel-bio {
-        font-size: 13px;
-        line-height: 1.55;
+    .sukie-channel-main h3 {
+        font-size: 21px;
     }
 
     .sukie-channel-tags {
-        gap: 6px;
-    }
-
-    .sukie-channel-tags span {
-        padding: 4px 9px;
-        font-size: 11px;
-    }
-
-    .sukie-channel-cta {
-        padding: 13px 18px;
-        font-size: 13.5px;
+        flex-direction: column;
+        gap: 8px;
     }
 
     .info-card,
