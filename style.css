@@ -2038,6 +2038,229 @@ main {
     line-height: 1.7;
 }
 
+/* SUKIE FEATURED TELEGRAM CHANNEL CARD (100% UNIFIED THEME + COMPACT MOBILE) */
+.sukie-channel-card {
+    position: relative;
+    margin-top: 25px;
+    padding: 32px 35px;
+    border: 1px solid var(--surface-border);
+    border-radius: 25px;
+    background: var(--edu-card-bg);
+    box-shadow: var(--surface-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    overflow: hidden;
+    cursor: pointer;
+    transform: translateZ(0);
+    transition:
+        transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.sukie-channel-card::before {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    right: -100px;
+    bottom: -110px;
+    border: 1px solid rgba(139, 92, 246, 0.12);
+    border-radius: 50%;
+    pointer-events: none;
+    transition: transform 0.45s ease;
+}
+
+.sukie-channel-card::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    right: 55px;
+    top: -60px;
+    border: 1px solid rgba(59, 130, 246, 0.10);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.sukie-channel-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--surface-hover-border);
+    box-shadow: var(--surface-hover-shadow);
+}
+
+.sukie-channel-card:hover::before {
+    transform: scale(1.12);
+}
+
+.sukie-channel-card:focus-visible {
+    outline: 2px solid var(--accent-purple);
+    outline-offset: 3px;
+}
+
+.sukie-channel-left {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 75px minmax(0, 1fr);
+    grid-template-areas:
+        "emblem head"
+        "emblem bio"
+        "emblem tags";
+    column-gap: 26px;
+    row-gap: 8px;
+    align-items: center;
+    min-width: 0;
+    flex: 1;
+}
+
+.sukie-channel-emblem {
+    grid-area: emblem;
+    align-self: center;
+    width: 75px;
+    height: 75px;
+    border-radius: 20px;
+    background: rgba(139, 92, 246, 0.12);
+    border: 1px solid rgba(139, 92, 246, 0.22);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-purple);
+    font-size: 30px;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+[data-theme="dark"] .sukie-channel-emblem {
+    color: #a78bfa;
+}
+
+.sukie-channel-card:hover .sukie-channel-emblem {
+    transform: scale(1.05);
+    border-color: rgba(139, 92, 246, 0.45);
+    box-shadow: 0 12px 28px rgba(124, 58, 237, 0.22);
+}
+
+.sukie-channel-head {
+    grid-area: head;
+    min-width: 0;
+}
+
+.sukie-channel-badges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.sukie-channel-live {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 50px;
+    background: var(--control-bg);
+    border: 1px solid var(--control-border);
+    color: var(--accent-purple-soft);
+    font-size: 10px;
+    letter-spacing: 1.4px;
+    font-weight: 800;
+}
+
+.sukie-channel-handle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 11px;
+    border-radius: 8px;
+    background: rgba(139, 92, 246, 0.12);
+    border: 1px solid rgba(139, 92, 246, 0.22);
+    color: var(--accent-purple-soft);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.sukie-channel-head h3 {
+    margin-top: 8px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 25px;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    color: var(--text-main);
+}
+
+.sukie-channel-bio {
+    grid-area: bio;
+    color: var(--text-muted);
+    font-size: 13.5px;
+    line-height: 1.65;
+    max-width: 640px;
+}
+
+.sukie-channel-bio strong {
+    color: var(--text-strong);
+}
+
+.sukie-channel-tags {
+    grid-area: tags;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.sukie-channel-tags span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 11px;
+    border-radius: 8px;
+    background: var(--control-bg);
+    border: 1px solid var(--surface-border);
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.sukie-channel-tags i {
+    color: var(--accent-purple);
+    font-size: 11.5px;
+}
+
+.sukie-channel-cta {
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 24px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0 12px 35px rgba(99, 102, 241, 0.28);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sukie-channel-card:hover .sukie-channel-cta {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 42px rgba(99, 102, 241, 0.38);
+}
+
+.sukie-channel-cta .cta-arrow {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.sukie-channel-card:hover .sukie-channel-cta .cta-arrow {
+    transform: translate(3px, -3px);
+}
+
 
 /* =========================
    SOCIAL
@@ -2999,6 +3222,16 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .sukie-channel-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .sukie-channel-cta {
+        width: 100%;
+    }
+
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -3137,6 +3370,34 @@ footer {
     .memory-main-card,
     .sukie-main-card {
         padding: 24px;
+    }
+
+    .sukie-channel-card {
+        padding: 22px;
+        gap: 16px;
+    }
+
+    .sukie-channel-left {
+        grid-template-columns: 58px minmax(0, 1fr);
+        grid-template-areas:
+            "emblem head"
+            "bio bio"
+            "tags tags";
+        column-gap: 15px;
+        row-gap: 12px;
+        align-items: center;
+    }
+
+    .sukie-channel-emblem {
+        width: 58px;
+        height: 58px;
+        border-radius: 16px;
+        font-size: 24px;
+    }
+
+    .sukie-channel-head h3 {
+        font-size: 20px;
+        margin-top: 6px;
     }
 
     .memory-trait-card,
@@ -3291,6 +3552,58 @@ footer {
         padding: 20px;
     }
 
+    .sukie-channel-card {
+        padding: 18px;
+        gap: 14px;
+    }
+
+    .sukie-channel-left {
+        grid-template-columns: 52px minmax(0, 1fr);
+        column-gap: 12px;
+        row-gap: 10px;
+    }
+
+    .sukie-channel-emblem {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        font-size: 22px;
+    }
+
+    .sukie-channel-live {
+        padding: 4px 9px;
+        font-size: 9px;
+        letter-spacing: 1.1px;
+    }
+
+    .sukie-channel-handle {
+        padding: 4px 8px;
+        font-size: 10px;
+    }
+
+    .sukie-channel-head h3 {
+        font-size: 18.5px;
+    }
+
+    .sukie-channel-bio {
+        font-size: 13px;
+        line-height: 1.55;
+    }
+
+    .sukie-channel-tags {
+        gap: 6px;
+    }
+
+    .sukie-channel-tags span {
+        padding: 4px 9px;
+        font-size: 11px;
+    }
+
+    .sukie-channel-cta {
+        padding: 13px 18px;
+        font-size: 13.5px;
+    }
+
     .memory-trait-card,
     .sukie-trait-card {
         padding: 18px;
@@ -3330,6 +3643,9 @@ footer {
     .mahila-mitra-photo-card:hover,
     .mahila-mitra-photo-card:hover .sukie-photo-wrap img,
     .sukie-trait-card:hover,
+    .sukie-channel-card:hover,
+    .sukie-channel-card:hover .sukie-channel-emblem,
+    .sukie-channel-card:hover .sukie-channel-cta,
     .work-card:hover,
     .skill-card:hover,
     .info-card:hover,
