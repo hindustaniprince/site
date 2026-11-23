@@ -8,6 +8,7 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 </script>
+
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="UURTviKOk7X_j5HBLLfgpq489y63AoBgHGwP3OXF6GQ" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1698,25 +1699,39 @@
             });
         }
 
-        window.addEventListener("scroll", handleScrollUpdates, { passive: true });
-        handleScrollUpdates();
-
-
-        /* =========================
-           6. MOUSE GLOW (GPU ACCELERATED)
-        ========================= */
-        const cursorGlow = document.getElementById("cursorGlow");
-
+        let scrollTicking = false;
         window.addEventListener(
-            "mousemove",
-            (event) => {
-                if (cursorGlow) {
-                    cursorGlow.style.transform =
-                        `translate3d(${event.clientX - 150}px, ${event.clientY - 150}px, 0)`;
+            "scroll",
+            () => {
+                if (!scrollTicking) {
+                    window.requestAnimationFrame(() => {
+                        handleScrollUpdates();
+                        scrollTicking = false;
+                    });
+                    scrollTicking = true;
                 }
             },
             { passive: true }
         );
+        handleScrollUpdates();
+
+
+        /* =========================
+           6. MOUSE GLOW (DESKTOP POINTER ONLY)
+        ========================= */
+        const cursorGlow = document.getElementById("cursorGlow");
+        const hasFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+        if (cursorGlow && hasFinePointer) {
+            window.addEventListener(
+                "mousemove",
+                (event) => {
+                    cursorGlow.style.transform =
+                        `translate3d(${event.clientX - 150}px, ${event.clientY - 150}px, 0)`;
+                },
+                { passive: true }
+            );
+        }
 
 
         /* =========================
